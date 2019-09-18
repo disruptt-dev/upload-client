@@ -1,0 +1,39 @@
+{
+  "name": "@betterstack/upload-client",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/umd/index",
+  "module": "dist/module/index",
+  "types": "dist/module/index",
+  "author": "betterstack.dev",
+  "license": "GPL-3.0-only",
+  "private": false,
+  "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/betterstack/upload-client"
+  },
+  "scripts": {
+    "test": "jest",
+    "clean": "rm -rf ./dist",
+    "commonjs:build": "tsc",
+    "umd:build": "rollup -c",
+    "umd:minify": "uglifyjs ./dist/umd/index.js -o ./dist/umd/index.min.js --source-map url",
+    "build": "npm run clean && npm run commonjs:build && npm run umd:build && npm run umd:minify",
+    "push": "git push origin master --tags && npm publish"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jest": "^24.0.18",
+    "@types/node": "^12.7.4",
+    "jest": "^24.9.0",
+    "rollup": "^1.19.4",
+    "rollup-plugin-typescript": "^1.0.1",
+    "rollup-plugin-uglify": "^6.0.3",
+    "tslib": "^1.10.0",
+    "ts-jest": "^24.0.2",
+    "tslint": "^5.18.0",
+    "typescript": "^3.5.3",
+    "uglify-js": "^3.6.0"
+  }
+}
