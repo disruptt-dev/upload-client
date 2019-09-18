@@ -1,6 +1,6 @@
 {
   "name": "@betterstack/upload-client",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "",
   "main": "dist/umd/index",
   "module": "dist/module/index",
@@ -20,7 +20,7 @@
     "umd:build": "rollup -c",
     "umd:minify": "uglifyjs ./dist/umd/index.js -o ./dist/umd/index.min.js --source-map url",
     "build": "npm run clean && npm run commonjs:build && npm run umd:build && npm run umd:minify",
-    "push": "git push origin master --tags && npm publish"
+    "push": "git push origin master --tags && npm publish --access=public"
   },
   "dependencies": {},
   "devDependencies": {

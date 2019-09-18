@@ -1,0 +1,38 @@
+{
+    "compilerOptions": {
+
+        "sourceMap": true,
+        "inlineSources": true,
+        "declaration": true,
+
+        "baseUrl": ".",
+        "outDir": "./dist/module",
+        "rootDir": "./src",
+
+        /* MODULES */
+        "module": "es6",
+        "target": "es6",
+        "lib": [ "es6", "dom" ],
+        "allowSyntheticDefaultImports": true,
+        "esModuleInterop": true,
+        "moduleResolution": "node",
+
+        /* Type-Checking Options */
+        "strict": true,
+        "noImplicitAny": true,
+        "strictNullChecks": true,
+        "noImplicitThis": true,
+        "alwaysStrict": true,
+        "forceConsistentCasingInFileNames": true,
+        "removeComments": true,
+        "experimentalDecorators": true,
+        "noUnusedLocals": false, /* Report errors on unused locals. */
+        "noUnusedParameters": false, /* Report errors on unused parameters. */
+        "noImplicitReturns": true, /* Report error when not all code paths in function return a value. */
+        "noFallthroughCasesInSwitch": true
+
+    },
+    "include": [
+        "./src/**/*"
+    ]
+}
