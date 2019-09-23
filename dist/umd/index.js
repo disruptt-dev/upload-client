@@ -331,7 +331,7 @@
             this.opts = opts;
             this.apiUrl = opts.isTest ?
                 "http://localhost:3002/v1/signed-urls" :
-                "https://upload-api.pathof.dev/v1/signed-urls";
+                "https://upload-api.betterstack.dev/v1/signed-urls";
             this.progress = function () { };
         }
         return UploadBtnTask;
