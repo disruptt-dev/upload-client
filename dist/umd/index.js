@@ -95,11 +95,11 @@
         task_already_executed: "An upload task may only be started once",
         task_already_aborted: "Upload task already aborted, it can no longer start",
         task_no_files: "Property 'files' is missing or is an empty array",
-        mismatch_length_signed_urls_and_files: "Something went wrong internally, please contact us",
-        internal_error: "Something went wrong internally, please contact us",
-        invalid_api_key: "API key doesn't match any application",
-        invalid_provider_id: "Provider ID doesn't match any application providers",
-        not_enough_uploads: "Not enough upload credits on this application to satisfy request"
+        mismatch_length_signed_urls_and_files: "Something went wrong internally, contact us",
+        internal_error: "Something went wrong internally, contact us",
+        invalid_api_key: "API key doesn't match any services",
+        invalid_provider_id: "Provider ID doesn't match any service providers",
+        not_enough_uploads: "Not enough upload credits on this service"
     };
     var ServiceError = (function (_super) {
         __extends(ServiceError, _super);
@@ -211,7 +211,7 @@
                                             }
                                             else {
                                                 uploadedFiles[i].error = "could_not_initiate_request";
-                                                console.log(e_2);
+                                                this_1.log(e_2);
                                             }
                                             return [3, 4];
                                         case 4: return [2];

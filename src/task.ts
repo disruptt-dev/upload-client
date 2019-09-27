@@ -12,6 +12,7 @@ export class UploadBtnTask {
 
   constructor(opts: T.UploadBtnTaskOptions) {
     this.opts = opts;
+    // @ts-ignore
     this.apiUrl = opts.isTest ?
       "http://localhost:3002/v1/signed-urls" :
       "https://upload-api.betterstack.dev/v1/signed-urls";
@@ -120,7 +121,7 @@ export class UploadBtnTask {
           }
           else {
             uploadedFiles[i].error = `could_not_initiate_request`;
-            console.log(e);
+            this.log(e);
           }
         }
 

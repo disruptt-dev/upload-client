@@ -21,7 +21,6 @@ export interface TaskProgress {
 export declare type ProgressCallback = (p: TaskProgress) => void;
 export interface UploadClientOpts {
     apiKey: string;
-    isTest?: boolean;
     log?: boolean;
 }
 export interface UploadFunctionOpts {

@@ -89,7 +89,7 @@ export class UploadBtnTask {
                         }
                         else {
                             uploadedFiles[i].error = `could_not_initiate_request`;
-                            console.log(e);
+                            this.log(e);
                         }
                     }
                 }

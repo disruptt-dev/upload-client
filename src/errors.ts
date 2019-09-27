@@ -6,12 +6,12 @@ export const errors = {
   task_already_executed: "An upload task may only be started once",
   task_already_aborted: "Upload task already aborted, it can no longer start",
   task_no_files: "Property 'files' is missing or is an empty array",
-  mismatch_length_signed_urls_and_files: "Something went wrong internally, please contact us",
-  internal_error: "Something went wrong internally, please contact us",
+  mismatch_length_signed_urls_and_files: "Something went wrong internally, contact us",
+  internal_error: "Something went wrong internally, contact us",
   // Server errors
-  invalid_api_key: "API key doesn't match any application",
-  invalid_provider_id: "Provider ID doesn't match any application providers",
-  not_enough_uploads: "Not enough upload credits on this application to satisfy request"
+  invalid_api_key: "API key doesn't match any services",
+  invalid_provider_id: "Provider ID doesn't match any service providers",
+  not_enough_uploads: "Not enough upload credits on this service"
 };
 
 export class ServiceError extends Error {
