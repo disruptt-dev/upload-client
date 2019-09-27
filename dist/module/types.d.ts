@@ -6,9 +6,8 @@ export interface InputFile {
 export interface UploadedFile {
     key: string;
     file: File;
-    success: boolean;
-    responseCode: number;
-    error: string;
+    responseCode?: number;
+    errorCode?: string;
 }
 export interface TaskProgress {
     totalBytes: number;
@@ -26,6 +25,7 @@ export interface UploadClientOpts {
 export interface UploadFunctionOpts {
     files: InputFile[];
     providerId: string;
+    throwUploadError?: boolean;
 }
 export declare type UploadBtnTaskOptions = UploadClientOpts & UploadFunctionOpts;
 export interface APIGetSignedUrlsReq {

@@ -9,6 +9,9 @@ export declare const errors: {
     invalid_api_key: string;
     invalid_provider_id: string;
     not_enough_uploads: string;
+    upload_aborted: string;
+    upload_failed: string;
+    upload_could_not_initiate: string;
 };
 export declare class ServiceError extends Error {
     code: string;

@@ -8,7 +8,10 @@ export const errors = {
     internal_error: "Something went wrong internally, contact us",
     invalid_api_key: "API key doesn't match any services",
     invalid_provider_id: "Provider ID doesn't match any service providers",
-    not_enough_uploads: "Not enough upload credits on this service"
+    not_enough_uploads: "Not enough upload credits on this service",
+    upload_aborted: "The upload request was aborted",
+    upload_failed: "One or more files failed to upload due to a network error or an error HTTP response code",
+    upload_could_not_initiate: "The upload request for one or more files failed, likely due to mis-configured CORS",
 };
 export class ServiceError extends Error {
     constructor(code, e) {

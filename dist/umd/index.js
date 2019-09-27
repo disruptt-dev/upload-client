@@ -99,7 +99,10 @@
         internal_error: "Something went wrong internally, contact us",
         invalid_api_key: "API key doesn't match any services",
         invalid_provider_id: "Provider ID doesn't match any service providers",
-        not_enough_uploads: "Not enough upload credits on this service"
+        not_enough_uploads: "Not enough upload credits on this service",
+        upload_aborted: "The upload request was aborted",
+        upload_failed: "One or more files failed to upload due to a network error or an error HTTP response code",
+        upload_could_not_initiate: "The upload request for one or more files failed, likely due to mis-configured CORS",
     };
     var ServiceError = (function (_super) {
         __extends(ServiceError, _super);
@@ -119,13 +122,14 @@
             this.abort = false;
             this.executed = false;
             this.start = function () { return __awaiter(_this, void 0, Promise, function () {
-                var _a, files, providerId, progress_1, signResponse, uploadedFiles, _loop_1, this_1, i, state_1, e_1;
+                var _a, files, providerId, throwUploadError, progress_1, signResponse, uploadedFiles, _loop_1, this_1, i, state_1, e_1;
                 var _this = this;
                 return __generator(this, function (_b) {
                     switch (_b.label) {
                         case 0:
                             _b.trys.push([0, 6, , 7]);
                             _a = this.opts, files = _a.files, providerId = _a.providerId;
+                            throwUploadError = this.opts.throwUploadError !== false;
                             this.log("UploadClient: Init Task");
                             this.check();
                             this.executed = true;
@@ -171,9 +175,6 @@
                                             uploadedFiles[i] = {
                                                 key: key,
                                                 file: file,
-                                                success: false,
-                                                responseCode: 0,
-                                                error: "",
                                             };
                                             _a.label = 1;
                                         case 1:
@@ -196,22 +197,37 @@
                                                 })];
                                         case 2:
                                             _a.sent();
-                                            uploadedFiles[i].success = true;
-                                            uploadedFiles[i].responseCode = 200;
+                                            if (!throwUploadError) {
+                                                uploadedFiles[i].responseCode = 200;
+                                            }
                                             return [3, 4];
                                         case 3:
                                             e_2 = _a.sent();
                                             if (this_1.abort) {
-                                                uploadedFiles[i].error = "aborted";
-                                                uploadedFiles[i].responseCode = e_2.status ? e_2.status : 0;
+                                                if (throwUploadError)
+                                                    throw new ServiceError("upload_aborted");
+                                                else {
+                                                    uploadedFiles[i].responseCode = 0;
+                                                    uploadedFiles[i].errorCode = "upload_aborted";
+                                                }
                                             }
                                             else if (e_2.status) {
-                                                uploadedFiles[i].error = "failed_request";
-                                                uploadedFiles[i].responseCode = e_2.status;
+                                                this_1.log(e_2);
+                                                if (throwUploadError)
+                                                    throw new ServiceError("upload_failed");
+                                                else {
+                                                    uploadedFiles[i].responseCode = e_2.status;
+                                                    uploadedFiles[i].errorCode = "upload_failed";
+                                                }
                                             }
                                             else {
-                                                uploadedFiles[i].error = "could_not_initiate_request";
                                                 this_1.log(e_2);
+                                                if (throwUploadError)
+                                                    throw new ServiceError("upload_could_not_initiate");
+                                                else {
+                                                    uploadedFiles[i].responseCode = 0;
+                                                    uploadedFiles[i].errorCode = "upload_could_not_initiate";
+                                                }
                                             }
                                             return [3, 4];
                                         case 4: return [2];

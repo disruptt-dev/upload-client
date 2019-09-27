@@ -24,6 +24,8 @@ export class UploadBtnTask {
 
       const { files, providerId } = this.opts;
 
+      const throwUploadError = this.opts.throwUploadError !== false;
+
       this.log("UploadClient: Init Task");
       this.check();
       this.executed = true;
@@ -74,9 +76,6 @@ export class UploadBtnTask {
         uploadedFiles[i] = {
           key: key,
           file: file,
-          success: false,
-          responseCode: 0,
-          error: "",
         };
 
         try {
@@ -107,21 +106,36 @@ export class UploadBtnTask {
 
             },
           });
-          uploadedFiles[i].success = true;
-          uploadedFiles[i].responseCode = 200;
+          if (!throwUploadError) {
+            uploadedFiles[i].responseCode = 200;
+          }
         }
         catch (e) {
           if (this.abort) {
-            uploadedFiles[i].error = "aborted";
-            uploadedFiles[i].responseCode = e.status ? e.status : 0;
+            if (throwUploadError)
+              throw new ServiceError("upload_aborted");
+            else {
+              uploadedFiles[i].responseCode = 0;
+              uploadedFiles[i].errorCode = "upload_aborted";
+            }
           }
           else if (e.status) {
-            uploadedFiles[i].error = `failed_request`;
-            uploadedFiles[i].responseCode = e.status;
+            this.log(e);
+            if (throwUploadError)
+              throw new ServiceError("upload_failed");
+            else {
+              uploadedFiles[i].responseCode = e.status;
+              uploadedFiles[i].errorCode = "upload_failed";
+            }
           }
           else {
-            uploadedFiles[i].error = `could_not_initiate_request`;
             this.log(e);
+            if (throwUploadError)
+              throw new ServiceError("upload_could_not_initiate");
+            else {
+              uploadedFiles[i].responseCode = 0;
+              uploadedFiles[i].errorCode = "upload_could_not_initiate";
+            }
           }
         }
 
