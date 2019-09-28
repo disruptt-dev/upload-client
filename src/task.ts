@@ -32,7 +32,7 @@ export class UploadBtnTask {
 
       // Construct progress
       this.log("UploadClient: Start progress");
-      const progress: T.TaskProgress = {
+      const progress: T.TaskUploadProgress = {
         totalBytes: files.reduce((a, f) => a + f.file.size, 0),
         loadedBytes: 0,
         loadedPercent: 0,

@@ -9,7 +9,7 @@ export interface UploadedFile {
     responseCode?: number;
     errorCode?: string;
 }
-export interface TaskProgress {
+export interface TaskUploadProgress {
     totalBytes: number;
     loadedBytes: number;
     loadedPercent: number;
@@ -17,7 +17,7 @@ export interface TaskProgress {
     filesLoadedBytes: number[];
     filesBytes: number[];
 }
-export declare type ProgressCallback = (p: TaskProgress) => void;
+export declare type ProgressCallback = (p: TaskUploadProgress) => void;
 export interface UploadClientOpts {
     apiKey: string;
     log?: boolean;
