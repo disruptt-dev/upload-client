@@ -96,7 +96,7 @@
         task_already_aborted: "Upload task already aborted, it can no longer start",
         task_no_files: "Property 'files' is missing or is an empty array",
         mismatch_length_signed_urls_and_files: "Something went wrong internally, contact us",
-        internal_error: "Something went wrong internally, contact us",
+        internal_error: "Something went wrong with our service, contact us",
         invalid_api_key: "API key doesn't match any services",
         invalid_provider_id: "Provider ID doesn't match any service providers",
         not_enough_uploads: "Not enough upload credits on this service",
@@ -108,7 +108,7 @@
         __extends(ServiceError, _super);
         function ServiceError(code, e) {
             var _this = _super.call(this, errors[code]) || this;
-            _this.name = "ServiceError";
+            _this.name = "UploadServiceError";
             _this.code = code;
             _this.thrown = e;
             return _this;

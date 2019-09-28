@@ -7,7 +7,7 @@ export const errors = {
   task_already_aborted: "Upload task already aborted, it can no longer start",
   task_no_files: "Property 'files' is missing or is an empty array",
   mismatch_length_signed_urls_and_files: "Something went wrong internally, contact us",
-  internal_error: "Something went wrong internally, contact us",
+  internal_error: "Something went wrong with our service, contact us",
   // Server errors
   invalid_api_key: "API key doesn't match any services",
   invalid_provider_id: "Provider ID doesn't match any service providers",
@@ -23,7 +23,7 @@ export class ServiceError extends Error {
   thrown?: Error;
   constructor(code: keyof typeof errors, e?: Error) {
     super(errors[code]);
-    this.name = "ServiceError";
+    this.name = "UploadServiceError";
     this.code = code;
     this.thrown = e;
   }
