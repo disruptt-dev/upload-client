@@ -1,6 +1,6 @@
 {
   "name": "@betterstack/upload-client",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "",
   "main": "dist/umd/index",
   "module": "dist/module/index",
