@@ -1,9 +1,9 @@
 # File Upload Client
 
-This repo contains the NPM package used in conjunction with the [BetterStack File Upload Service](https://betterstack.dev/services/file-upload).
+The BetterStack File Upload Service](https://betterstack.dev/services/file-upload) is the easiest way to upload files from the browser to Amazon S3 and Digitalocean spaces.
 
-For documentation and support, please see the following links:
-- [Documentation site](https://docs.betterstack.dev)
+For usage documentation and support, please see the following links:
+- [Documentation](https://docs.betterstack.dev)
 - [Support forum](https://forum.betterstack.dev)
 
 ## Contributing
