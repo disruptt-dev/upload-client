@@ -1,10 +1,10 @@
 # File Upload Client
 
-This repo contains the NPM package used in conjunction with the [BetterStack File Upload Service]("https://betterstack.dev/services/file-upload").
+This repo contains the NPM package used in conjunction with the [BetterStack File Upload Service](https://betterstack.dev/services/file-upload).
 
 For documentation and support, please see the following links:
-- [Documentation site]("https://docs.betterstack.dev")
-- [Support forum]("https://forum.betterstack.dev")
+- [Documentation site](https://docs.betterstack.dev)
+- [Support forum](https://forum.betterstack.dev)
 
 ## Contributing
 
