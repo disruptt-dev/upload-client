@@ -1,7 +1,14 @@
 {
   "name": "@betterstack/upload-client",
   "version": "0.0.8",
-  "description": "",
+  "description": "Easily upload files from the browser to Amazon S3 or Digitalocean Spaces",
+  "keywords": [
+    "file upload",
+    "client-side upload",
+    "digitalocean spaces",
+    "amazon s3",
+    "s3"
+  ],
   "main": "dist/umd/index",
   "module": "dist/module/index",
   "types": "dist/module/index",
@@ -9,6 +16,7 @@
   "license": "GPL-3.0-only",
   "private": false,
   "sideEffects": false,
+  "homepage": "https://betterstack.dev/services/file-upload",
   "repository": {
     "type": "git",
     "url": "https://github.com/betterstack/upload-client"
