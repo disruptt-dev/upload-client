@@ -1,6 +1,6 @@
 # File Upload Client
 
-The BetterStack File Upload Service](https://betterstack.dev/services/file-upload) is the easiest way to upload files from the browser to Amazon S3 and Digitalocean spaces.
+The [BetterStack File Upload Service](https://betterstack.dev/services/file-upload) is the easiest way to upload files from the browser to Amazon S3 and Digitalocean spaces.
 
 For usage documentation and support, please see the following links:
 - [Documentation](https://docs.betterstack.dev)
